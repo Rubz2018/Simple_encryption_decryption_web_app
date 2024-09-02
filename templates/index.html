@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encryption Demo</title>
+</head>
+
+<body>
+    <h1>Encrypt and Decrypt Data</h1>
+    <form id="encrypt-form">
+        <label for="data">Data to Encrypt:</label>
+        <input type="text" id="data" name="data" required>
+        <button type="submit">Encrypt</button>
+    </form>
+
+    <p>Encrypted Data: <span id="encrypted-data"></span></p>
+
+    <form id="decrypt-form">
+        <label for="encrypted-data">Data to Decrypt:</label>
+        <input type="text" id="encrypted-input" name="encrypted_data" required>
+        <button type="submit">Decrypt</button>
+    </form>
+
+    <p>Decrypted Data: <span id="decrypted-data"></span></p>
+
+    <script>
+        document.getElementById('encrypt-form').addEventListener('submit', async function (event) {
+            event.preventDefault();
+            const response = await fetch('/encrypt', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ data: document.getElementById('data').value })
+            });
+            const result = await response.json();
+            document.getElementById('encrypted-data').innerText = result.encrypted_data;
+        });
+
+        document.getElementById('decrypt-form').addEventListener('submit', async function (event) {
+            event.preventDefault();
+            const response = await fetch('/decrypt', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ encrypted_data: document.getElementById('encrypted-input').value })
+            });
+            const result = await response.json();
+            document.getElementById('decrypted-data').innerText = result.decrypted_data;
+        });
+    </script>
+</body>
+
+</html>
