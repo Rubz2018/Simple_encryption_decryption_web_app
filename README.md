@@ -3,9 +3,9 @@
 
 - Step 1: Set Up Your Project in VSCode
 Open VSCode:
-Launch Visual Studio Code on your machine.
+- Launch Visual Studio Code on your machine.
 In VSCode, go to File > Open Folder and select the folder you just cloned.
-Create a Virtual Environment:
+- Create a Virtual Environment:
 Open the terminal in VSCode (View > Terminal) and run the following command to create a virtual environment:
 
 python -m venv venv
@@ -15,7 +15,7 @@ On Windows:
 venv\Scripts\activate
 On macOS/Linux:
 source venv/bin/activate
-Install Flask and Cryptography Libraries:
+- Install Flask and Cryptography Libraries:
 
 With the virtual environment activated, install the necessary packages:
 pip install flask cryptography
@@ -43,7 +43,7 @@ Click the "Encrypt" button.
 View the Encrypted Data:
 
 The encrypted data will appear below the form under "Encrypted Data".
-4. Test Decryption
+- step 6:  Test Decryption
 In the "Decrypt Data" form:
 
 Copy the encrypted data from the "Encrypted Data" field.
@@ -52,7 +52,7 @@ Click the "Decrypt" button.
 View the Decrypted Data:
 
 The decrypted data will appear below the form under "Decrypted Data".
-5. Verify the Process
+- step 7: Verify the Process
 Check the Encryption: Ensure the encrypted data is a long string of hexadecimal characters, which is typical for encrypted outputs.
 Check the Decryption: Verify that the decrypted data matches the original input data.
 Example Workflow
